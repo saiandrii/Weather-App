@@ -1,4 +1,5 @@
 import {
+  Dimensions,
   StyleSheet,
   Text,
   TextInput,
@@ -14,6 +15,8 @@ import { debounce } from "lodash";
 import { fetchLocations } from "../api/weather";
 
 const SearchBar = () => {
+  const windowHeight = Dimensions.get("screen").height;
+
   const { searchToggle, setSearchToggle } = useContext(WeatherContext);
   const { places, setPlaces } = useContext(WeatherContext);
   const handleSearch = (value) => {
@@ -29,7 +32,7 @@ const SearchBar = () => {
   return (
     <View
       style={{
-        height: "75%",
+        height: windowHeight > 700 ? "75%" : "65%",
         zIndex: 50,
         paddingTop: 10,
         paddingHorizontal: 10,

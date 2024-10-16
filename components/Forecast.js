@@ -1,4 +1,11 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Dimensions,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React, { useContext } from "react";
 import { CalendarDaysIcon } from "react-native-heroicons/solid";
 import { WeatherContext } from "../context/AppContext";
@@ -6,13 +13,14 @@ import { weatherImages } from "../images";
 import { colors } from "../colors";
 
 const Forecast = () => {
+  const windowHeight = Dimensions.get("screen").height;
   const { weather, setWeather } = useContext(WeatherContext);
 
   return (
     <View
       style={{
         marginBottom: 2,
-        bottom: "50%",
+        bottom: windowHeight > 700 ? "50%" : "53%",
         paddingLeft: 20,
         paddingTop: 50,
       }}
